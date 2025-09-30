@@ -18,11 +18,33 @@ namespace OP;
 <section class="markdown" data-translation="true">
 # `OP()`
 
-First, let’s explain `OP()`.
+First, let’s explain about `OP()`.
 `OP()` is the core function of the ONEPIECE Framework.
 It connects all the features of the ONEPIECE Framework, and by using `OP()`, you can access every function within the framework.
-This time, we call `Request()`, which retrieves the URL query.
+</section>
 
-The first is the OP() function.
-The `OP()` function is the core of the ONEPIECE Framework, enabling access to all of its.
+<section class="markdown" data-translation="true">
+## `OP()->Unit()`
+
+The function you will use most is `OP()->Unit()`.
+`OP()->Unit()` connects the main ONEPIECE units with a method chain.
+For example, if you want to access `App::Title()`, you would do this:
+
+```php
+OP()->Unit()->App()->Title('TOP');
+```
+
+However, the only unit that can be called by method chaining are those set in `OP_UNIT_MAPPER`.
+Other units can be obtained using arguments as follows:
+
+```php
+$balance = OP()->Unit('Bitcoin')->GetBalance();
+```
+
+If you need input completion, assign the instance to a variable as follows:
+
+```php
+/* @var $bitcoin \\OP\\UNIT\\Bitcoin */
+$bitcoin = OP()->Unit('Bitcoin');
+```
 </section>

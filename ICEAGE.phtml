@@ -1,0 +1,71 @@
+<?php
+/**	op-core-tutorial:/ICEAGE.phtml
+ *
+ * @created    2025-09-30
+ * @version    1.0
+ * @package    op-core
+ * @subpackage tutorial
+ * @author     Tomoaki Nagahara
+ * @copyright  Tomoaki Nagahara All right reserved.
+ */
+
+/**	namespace
+ *
+ */
+namespace OP;
+
+?>
+<section class="markdown" data-translation="true">
+# Stop the Time
+
+One of the useful features of the ONEPIECE framework is **time control**.
+
+In system development, you may want to verify the behavior of a specific date and time.
+For example, suppose you want to change the price at a certain date and time.
+Before releasing, you need to make sure the prices are displayed correctly.
+
+In conventional web framework development, developers used to change the host machine’s system clock to the future to check such behavior.
+However, that is considered a poor practice of the past.
+
+In modern development, Date and time changes are closed within the framework and do not affect the entire system.
+You can freely travel between the past and future timelines.
+
+## How to Frozen the Time
+
+`OP()->Time()` is a function that obtains the current time, but if an argument is given, it will be fixed to the time of the argument.
+
+```php
+OP()->Time('2030-01-01 00:00:00');
+```
+
+The time can be specified relatively.
+
+```php
+OP()->Time('-1 month');
+```
+
+With this, you can always retrieve the timestamp of the specified time.
+
+```php
+D( OP()->Timestamp() ); // 2030-01-01 00:00:00
+```
+
+If you want to change the price dynamically, you can do something like this:
+
+```php
+$price = ( OP()->Time() &lt; strtotime('2030-01-01 00:00:00') ) ? 1000: 1100;
+```
+</section>
+
+<?php
+if(!OP()->Template('tutorial:/yesno.phtml',[
+	'message'=>'Did you understand the ICEAGE?',
+	'yes'=>'Super Great!!',
+]) ){
+	return;
+}
+?>
+
+<section class="markdown" data-translation="true">
+<?php OP()->Template('tutorial:/feedback.phtml') ?>
+</section>

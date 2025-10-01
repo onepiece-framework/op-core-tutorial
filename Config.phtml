@@ -1,0 +1,46 @@
+<?php
+/**	op-core-tutorial:/Config.phtml
+ *
+ * @created    2025-09-30
+ * @version    1.0
+ * @package    op-core
+ * @subpackage tutorial
+ * @author     Tomoaki Nagahara
+ * @copyright  Tomoaki Nagahara All right reserved.
+ */
+
+/**	namespace
+ *
+ */
+namespace OP;
+
+?>
+<section class="markdown" data-translation="true">
+# Overview the `Config`
+
+The ONEPIECE Framework's `Config` file's format is PHP.
+It is written as an associative array.
+It would be pretty stupid for a PHP framework to use YAML, XML, or JSON.
+
+## Location of `Config` Files
+
+The `Config` files are stored in `asset:/config/`.
+</section>
+
+<section class="markdown" data-translation="true">
+# How to use
+
+## Retrieving a Setting
+
+```php
+$config = OP()->Config('app');
+```
+
+## Updating a Setting
+
+```php
+OP()->Config('app', ['title'=>'My Web Site']);
+```
+</section>
+
+<?php OP()->Template('tutorial:/feedback.phtml') ?>

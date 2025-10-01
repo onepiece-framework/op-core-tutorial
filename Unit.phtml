@@ -15,3 +15,45 @@
 namespace OP;
 
 ?>
+<section class="markdown" data-translation="true">
+# Overview
+
+In the ONEPIECE framework, you can easily access units using `OP()->Unit()`.
+</section>
+
+<section class="markdown" data-translation="true">
+# How to use
+
+`OP()->Unit()` is return an already instantiated instance.
+
+```php
+OP()->Unit()->App()->Title('TOP');
+```
+
+## About instance
+
+There are two ways to obtain an instance:
+The first method is get an already instantiated instance.
+The second method is get always a new instance.
+
+### Get an already instantiated instance
+
+```php
+OP()->Unit()->Instantiated('unit_name');
+```
+
+### Always get a new instance
+
+```php
+OP()->Unit()->Instantiate('unit_name');
+```
+</section>
+
+<section class="markdown" data-translation="true">
+# For developers
+
+Please note that in the ONEPIECE framework, the rule is to always return an instantiated unit.
+In common design patterns, this is often referred to as the Singleton Pattern.
+</section>
+
+<?php OP()->Template('tutorial:/feedback.phtml') ?>

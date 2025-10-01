@@ -1,0 +1,57 @@
+<?php
+/**	op-core-tutorial:/Admin.phtml
+ *
+ * @created    2025-09-30
+ * @version    1.0
+ * @package    op-core
+ * @subpackage tutorial
+ * @author     Tomoaki Nagahara
+ * @copyright  Tomoaki Nagahara All right reserved.
+ */
+
+/**	namespace
+ *
+ */
+namespace OP;
+
+?>
+<section class="markdown" data-translation="true">
+# Admin Settings
+
+You can configure admin settings in `asset:/config/admin.php`.
+
+## `OP::_ADMIN_IP_`
+
+When you access from the IP address set here, developer mode will be enabled.
+The `OP()->isAdmin()` will return `true` based on the IP address set here.
+This value affects `D()` and `OP()->Error()`.
+Please set the value of `OP::_ADMIN_IP_` to the administrator’s IP address.
+
+```php
+[
+    OP::_ADMIN_IP_ => '192.168.100.100'
+]
+```
+
+## `OP::_ADMIN_MAIL_`
+
+Error messages will be sent to this email address.
+
+```php
+[
+    OP::_ADMIN_MAIL_ => 'info@onepiece-framework.com'
+]
+```
+
+## `OP::_ADMIN_FROM_`
+
+This email address will be used as the "from" of the admin email.
+
+```php
+[
+    OP::_ADMIN_FROM_ => 'noreply@onepiece-framework.com'
+]
+```
+</section>
+
+<?php OP()->Template('tutorial:/feedback.phtml') ?>
